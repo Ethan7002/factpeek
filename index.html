@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -267,7 +267,7 @@
       </div>
       <div class="profile-grid">
         <section class="badge-section reveal delay-1">
-          <div class="subheading"><div><p class="eyebrow"><span></span> PROGRESS</p><h2>My badges</h2></div><button class="inline-link">View all →</button></div>
+          <div class="subheading"><div><p class="eyebrow"><span></span> PROGRESS</p><h2>My badges</h2></div><button class="inline-link" id="badgeViewAll">View all →</button></div>
           <div class="badge-grid">
             <article data-badge="first"><div class="badge-shape blue-badge">⌕</div><h3>First Look</h3><p>Complete 1 case</p></article>
             <article data-badge="five"><div class="badge-shape mint-badge">↗</div><h3>Case Closer</h3><p>Complete 5 cases</p></article>
@@ -297,8 +297,14 @@
 
   <div class="result-overlay" id="resultOverlay" hidden><div class="result-card"><div class="result-icon" id="resultIcon">✓</div><h2 id="resultTitle">Evidence secured!</h2><p id="resultText"></p><button class="primary-button" id="continueQuiz">Continue →</button></div></div>
   <div class="result-overlay" id="staminaOverlay" hidden><div class="result-card stamina-card"><div class="result-icon">⚡</div><h2>Verification stamina depleted</h2><p>Repeated misses are a signal to pause and learn a method—not to keep guessing. Complete a 60-second skill boost to recharge.</p><button class="primary-button" id="goLearnButton">Learn and recharge →</button></div></div>
+  <div class="result-overlay badge-overlay" id="badgeOverlay" hidden>
+    <section class="badge-vault" role="dialog" aria-modal="true" aria-labelledby="badgeVaultTitle">
+      <div class="badge-vault-head"><div><p class="eyebrow"><span></span> ACHIEVEMENT VAULT</p><h2 id="badgeVaultTitle">All badges</h2><p>Complete cases, build streaks, and practice different verification skills to unlock the full collection.</p></div><button class="vault-close" id="closeBadgeVault" aria-label="Close badge collection">×</button></div>
+      <div class="all-badge-grid" id="allBadgeGrid"></div>
+    </section>
+  </div>
   <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
