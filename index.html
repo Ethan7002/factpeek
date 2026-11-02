@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -140,7 +140,7 @@
     <section class="view section-wrap inner-view" id="view-library" data-view="library">
       <div class="page-intro reveal">
         <div>
-          <p class="eyebrow"><span></span> CASE LIBRARY</p>
+          <p class="eyebrow"><span></span> CASE LIBRARY · 38 CASES</p>
           <h1>Build your judgment<br />in realistic scenarios.</h1>
         </div>
         <p>Find practice by topic, difficulty, and format. Every case includes a traceable evidence chain and actionable feedback.</p>
@@ -163,6 +163,16 @@
         <button class="filter-chip" data-filter="Image Verification">Image Verification</button>
         <button class="filter-chip" data-filter="Scams">Scams</button>
         <button class="filter-chip" data-filter="Climate">Climate</button>
+        <button class="filter-chip" data-filter="Finance">Finance</button>
+        <button class="filter-chip" data-filter="Social Media">Social Media</button>
+      </div>
+
+      <div class="truth-filter-row" role="group" aria-label="Case truth types">
+        <span>CONTENT TYPE</span>
+        <button class="truth-chip is-selected" data-truth="All">All types</button>
+        <button class="truth-chip" data-truth="Verified real">Verified real news</button>
+        <button class="truth-chip" data-truth="AI-generated fake">AI-generated fake</button>
+        <button class="truth-chip" data-truth="False or misleading">False or misleading</button>
       </div>
 
       <div class="case-grid" id="caseGrid"></div>
@@ -176,7 +186,7 @@
       </div>
       <div class="case-layout">
         <article class="article-pane reveal" id="caseArticle">
-          <div class="case-cover" id="caseCover"><span id="caseType">IMAGE VERIFICATION</span></div>
+          <div class="case-cover" id="caseCover"><span id="caseType">IMAGE VERIFICATION</span><span id="caseTruth">AI-GENERATED FAKE</span></div>
           <div class="article-kicker" id="caseMeta"></div>
           <h1 id="caseTitle"></h1>
           <p class="article-deck" id="caseDeck"></p>
@@ -305,6 +315,6 @@
   </div>
   <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
