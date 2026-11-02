@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -217,7 +217,17 @@
     <section class="view section-wrap inner-view" id="view-learn" data-view="learn">
       <div class="learn-shell reveal">
         <div class="learn-visual"><div class="battery"><i id="learnBattery"></i><span>⚡</span></div><p>Recharge your verification stamina</p></div>
-        <div class="learn-copy"><p class="eyebrow"><span></span> QUICK SKILL BOOST</p><h1 id="learnTitle">Pause. Trace. Compare.</h1><p id="learnText">When a claim triggers a strong reaction, pause before sharing. Find the original source, then compare it with at least two independent sources.</p><div class="tip-steps"><span>1 · Find the origin</span><span>2 · Check date & context</span><span>3 · Compare sources</span></div><button class="primary-button" id="rechargeButton">Complete lesson and recharge +3 ⚡</button></div>
+        <div class="learn-copy">
+          <p class="eyebrow"><span></span> QUICK SKILL BOOST</p>
+          <h1 id="learnTitle">Pause. Trace. Compare.</h1>
+          <p id="learnText">When a claim triggers a strong reaction, pause before sharing. Find the original source, then compare it with at least two independent sources.</p>
+          <div class="tip-steps" aria-label="Three-step verification method">
+            <article><span>1</span><div><strong>Find the origin</strong><p>Locate the earliest post, document, image, or recording.</p></div></article>
+            <article><span>2</span><div><strong>Check date and context</strong><p>Confirm when, where, and why the material first appeared.</p></div></article>
+            <article><span>3</span><div><strong>Compare sources</strong><p>Look for confirmation from at least two independent sources.</p></div></article>
+          </div>
+          <button class="primary-button recharge-button" id="rechargeButton">Complete lesson and recharge +3 ⚡</button>
+        </div>
       </div>
     </section>
 
