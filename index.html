@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -32,6 +32,19 @@
   </header>
 
   <main id="main" tabindex="-1">
+    <section class="view welcome-view" id="view-welcome" data-view="welcome">
+      <div class="welcome-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="welcome-copy reveal">
+        <button class="brand welcome-brand" aria-label="FactPeek"><span class="brand-mark"><i></i><i></i></span><span>factpeek</span></button>
+        <p class="eyebrow light-eyebrow"><span></span> YOUR EVIDENCE TRAINING STARTS HERE</p>
+        <h1>Don’t just scroll.<br /><em>Investigate.</em></h1>
+        <p>Train your eye, trace original sources, and earn rewards while learning how real and AI-generated news travels.</p>
+        <div class="welcome-actions"><button class="primary-button welcome-start" id="welcomeStart">Get started <span>→</span></button><button class="welcome-login" id="welcomeLogin">I already have an account</button></div>
+        <div class="welcome-proof"><span>38 evidence-led cases</span><span>12 unlockable badges</span><span>9 topics</span></div>
+      </div>
+      <div class="welcome-card-stack" aria-hidden="true"><article><b>SPOT</b><span>Find suspicious signals</span></article><article><b>TRACE</b><span>Follow the source</span></article><article><b>VERIFY</b><span>Build your evidence chain</span></article></div>
+    </section>
+
     <section class="view is-active login-view" id="view-login" data-view="login">
       <div class="login-art">
         <button class="brand login-brand" aria-label="FactPeek"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>factpeek</span></button>
@@ -55,6 +68,26 @@
           <p class="signup-row">New to FactPeek? <button type="button" id="createAccount">Create an account</button></p>
         </form>
       </div>
+    </section>
+
+    <section class="view register-view" id="view-register" data-view="register">
+      <div class="register-panel">
+        <button class="back-button" id="backToLogin">← Back to sign in</button>
+        <p class="eyebrow"><span></span> CREATE YOUR FACTPEEK PROFILE</p>
+        <h1>Start building your evidence skills.</h1>
+        <p class="register-lead">Your progress, saved cases, comments, points, and badges will be stored in this browser for the prototype.</p>
+        <form id="registerForm" class="register-form">
+          <div class="form-pair"><label>First name<input id="registerFirst" autocomplete="given-name" required placeholder="Alex" /></label><label>Last name<input id="registerLast" autocomplete="family-name" required placeholder="Chen" /></label></div>
+          <label>Email<input id="registerEmail" type="email" autocomplete="email" required placeholder="name@university.edu" /></label>
+          <label>Password<input id="registerPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="At least 6 characters" /></label>
+          <label>Confirm password<input id="registerConfirm" type="password" autocomplete="new-password" minlength="6" required placeholder="Repeat your password" /></label>
+          <label class="consent-row"><input id="registerConsent" type="checkbox" required /><span>I agree to the prototype privacy notice and community guidelines.</span></label>
+          <p class="form-error" id="registerError" role="alert"></p>
+          <button class="primary-button full" type="submit">Create account <span>→</span></button>
+        </form>
+        <p class="signup-row">Already registered? <button type="button" id="registerSignIn">Sign in</button></p>
+      </div>
+      <aside class="register-benefits"><div><span>01</span><h2>Save your investigation trail</h2><p>Keep favorites, comments, progress, and mistakes in one place.</p></div><div><span>02</span><h2>Earn points and badges</h2><p>Level up as you complete cases and practice different methods.</p></div><div><span>03</span><h2>Join the weekly board</h2><p>Compare progress using a public nickname, not your real identity.</p></div></aside>
     </section>
 
     <section class="view" id="view-home" data-view="home">
@@ -106,21 +139,21 @@
             <div class="mini-icon blue" aria-hidden="true">⌁</div>
             <h3>Spot suspicious signals</h3>
             <p>Vague sourcing, fabricated quotes, emotional language, and missing context are all reasons to pause.</p>
-            <button class="inline-link" data-route="library">Explore signal drills →</button>
+            <button class="inline-link" data-lesson="spot">Open the signal lesson →</button>
           </article>
           <article class="learning-card reveal delay-1">
             <span class="card-index">02</span>
             <div class="mini-icon mint" aria-hidden="true">◎</div>
             <h3>Trace the original source</h3>
             <p>Read laterally, locate official documents, check dates, and verify key claims across independent sources.</p>
-            <button class="inline-link" data-route="library">Learn the workflow →</button>
+            <button class="inline-link" data-lesson="trace">Open the tracing lesson →</button>
           </article>
           <article class="learning-card dark-card reveal delay-2">
             <span class="card-index">03</span>
             <div class="mini-icon coral" aria-hidden="true">↻</div>
             <h3>Improve through feedback</h3>
             <p>Go beyond right or wrong: see what evidence you missed and what to do differently next time.</p>
-            <button class="inline-link light" data-route="profile">View your progress →</button>
+            <button class="inline-link light" data-lesson="feedback">See how feedback works →</button>
           </article>
         </div>
       </section>
@@ -132,9 +165,21 @@
         </div>
         <div class="continue-action">
           <div class="progress-ring" style="--progress: 68"><span>68%</span></div>
-          <button class="secondary-button" data-route="library">Continue learning</button>
+          <button class="secondary-button" id="continueLearning">Continue learning</button>
         </div>
       </section>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-lesson" data-view="lesson">
+      <button class="back-button" data-route="home">← Back to Home</button>
+      <div class="lesson-shell reveal">
+        <div class="lesson-progress"><span id="lessonNumber">METHOD 01</span><i></i><b>3 min</b></div>
+        <p class="eyebrow"><span></span> MICRO LESSON</p>
+        <h1 id="lessonTitle">Spot suspicious signals.</h1>
+        <p class="lesson-lead" id="lessonLead"></p>
+        <div class="lesson-content" id="lessonContent"></div>
+        <div class="lesson-actions"><button class="secondary-button" data-route="home">Back home</button><button class="primary-button" id="lessonPractice">Practice this skill <span>→</span></button></div>
+      </div>
     </section>
 
     <section class="view section-wrap inner-view" id="view-library" data-view="library">
@@ -194,9 +239,20 @@
             <div class="source-avatar" id="caseAvatar">FP</div>
             <div><strong id="casePublisher"></strong><span id="casePublished"></span></div>
           </div>
+          <div class="social-actions" aria-label="Case actions">
+            <button id="favoriteCase" aria-pressed="false">♡ <span>Save</span></button>
+            <button id="shareCase">↗ <span>Share</span></button>
+            <button id="helpfulCase" aria-pressed="false">△ <span>Helpful</span> <small id="helpfulCount">24</small></button>
+            <button id="followPublisher" aria-pressed="false">＋ <span>Follow source</span></button>
+          </div>
           <div class="article-body" id="articleBody"></div>
           <div class="clue-box"><span>VERIFICATION PROMPT</span><p id="casePrompt"></p></div>
           <a class="source-link" id="caseSource" target="_blank" rel="noopener">Open the reference source ↗</a>
+          <section class="comment-section">
+            <div class="subheading"><div><p class="eyebrow"><span></span> COMMUNITY NOTES</p><h2>Discuss the evidence</h2></div><span id="commentCount">0 comments</span></div>
+            <form class="comment-form" id="commentForm"><div class="comment-avatar">AC</div><textarea id="commentInput" maxlength="320" placeholder="Add a respectful evidence-based comment…" required></textarea><button class="primary-button" type="submit">Post</button></form>
+            <div class="comment-list" id="commentList"></div>
+          </section>
         </article>
 
         <aside class="quiz-pane reveal delay-1" id="quizPane">
@@ -266,14 +322,16 @@
 
     <section class="view section-wrap inner-view" id="view-profile" data-view="profile">
       <div class="profile-hero reveal">
-        <div class="profile-avatar">AC<span></span></div>
-        <div><p>Welcome back</p><h1>Alex Chen</h1><span>8 cases this week · 82% accuracy</span></div>
-        <div class="streak-card"><strong>7</strong><span>day streak</span><div>● ● ● ● ● ● ●</div></div>
+        <div class="profile-avatar" id="profileAvatar">AC<span></span></div>
+        <div><p>Welcome back</p><h1 id="profileName">Alex Chen</h1><span id="profileOverview">0 cases completed · Start your first case</span></div>
+        <div class="level-card"><span id="profileLevel">LEVEL 1 · OBSERVER</span><strong id="profilePoints">0 XP</strong><div><i id="profileXpBar"></i></div><small id="profileNextLevel">100 XP to next level</small></div>
+        <div class="streak-card"><strong id="profileHeroStreak">1</strong><span>day streak</span><div id="streakDots">● ○ ○ ○ ○ ○ ○</div></div>
       </div>
       <div class="stats-grid reveal delay-1">
         <article><span>Cases completed</span><strong id="profileCompleted">0</strong><small>Keep investigating</small></article>
         <article><span>Current streak</span><strong id="profileStreak">1 day</strong><small id="profileBest">Best: 1 day</small></article>
         <article><span>Wrong-answer book</span><strong id="profileWrong">0</strong><small>Ready to review</small></article>
+        <article><span>Weekly rank</span><strong id="profileRank">#—</strong><small>FactPeek practice board</small></article>
       </div>
       <div class="profile-grid">
         <section class="badge-section reveal delay-1">
@@ -293,6 +351,14 @@
           <p class="skill-tip"><strong>NEXT STEP</strong>Practice image-verification cases next to improve at spotting recycled or misleadingly cropped images.</p>
         </aside>
       </div>
+      <section class="leaderboard-section reveal">
+        <div class="subheading"><div><p class="eyebrow"><span></span> WEEKLY PRACTICE BOARD</p><h2>Rank & momentum</h2></div><span class="rank-note">Prototype community</span></div>
+        <div class="leaderboard" id="leaderboard"></div>
+      </section>
+      <section class="favorites-section reveal">
+        <div class="subheading"><div><p class="eyebrow"><span></span> SAVED FOR LATER</p><h2>Favorite cases</h2></div><span id="favoriteCount">0 saved</span></div>
+        <div class="favorite-list" id="favoriteList"></div>
+      </section>
       <section class="wrongbook-section reveal" id="wrongbookSection"><div class="subheading"><div><p class="eyebrow"><span></span> REVIEW QUEUE</p><h2>Wrong-answer book</h2></div><button class="inline-link" id="clearMastered">Clear mastered</button></div><div class="wrongbook-list" id="wrongbookList"></div></section>
     </section>
   </main>
@@ -315,6 +381,6 @@
   </div>
   <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
