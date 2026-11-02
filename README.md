@@ -6,7 +6,9 @@ An English-only, responsive media-literacy learning prototype based on the FactP
 
 - English sign-in welcome screen and prototype access flow
 - Home and the daily challenge
-- 20 research-based cases with images, source links, and 10–15 minute practice estimates
+- 38 research-based cases with images, source links, and 10–15 minute practice estimates
+- Balanced truth types: verified real news, AI-generated fake content, and other false or misleading claims
+- Topic and truth-type filters across nine library categories
 - Library search and category filters
 - Case reading, clue marking, hints with score deductions, and mixed quiz formats
 - Animated right/wrong feedback, game sounds, progress, rewards, and completion summaries
