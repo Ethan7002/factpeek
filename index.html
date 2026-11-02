@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FactPeek — Evidence-first news literacy training for university students" />
+  <meta name="theme-color" content="#0f2b2a" />
+  <title>FactPeek · See the evidence before you believe the story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <button class="brand" data-route="home" aria-label="Return home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>factpeek</span>
+    </button>
+    <div class="header-actions">
+      <label class="global-search" aria-label="Site search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+        <input id="globalSearch" type="search" placeholder="Search cases or verification methods" />
+      </label>
+      <button class="icon-button" id="themeToggle" aria-label="Toggle dark mode" title="Toggle display mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="view is-active login-view" id="view-login" data-view="login">
+      <div class="login-art">
+        <button class="brand login-brand" aria-label="FactPeek"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>factpeek</span></button>
+        <div class="login-art-copy">
+          <p class="eyebrow light-eyebrow"><span></span> EVIDENCE-FIRST LEARNING</p>
+          <h1>See the story.<br /><em>Check the evidence.</em></h1>
+          <p>Build practical verification skills through realistic cases, guided methods, and feedback you can use next time.</p>
+        </div>
+        <div class="login-art-list"><span>01 · REALISTIC CASES</span><span>02 · ACTIONABLE FEEDBACK</span><span>03 · VISIBLE PROGRESS</span></div>
+      </div>
+      <div class="login-form-wrap">
+        <form class="login-card" id="loginForm">
+          <p class="eyebrow"><span></span> WELCOME TO FACTPEEK</p>
+          <h2>Continue your verification training.</h2>
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" placeholder="name@university.edu" autocomplete="email" required />
+          <div class="password-label"><label for="loginPassword">Password</label><button type="button" id="forgotPassword">Forgot password?</button></div>
+          <input id="loginPassword" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="4" />
+          <button class="primary-button full login-submit" type="submit">Sign in <span>→</span></button>
+          <p class="login-demo">Prototype access: enter any valid email and a 4+ character password.</p>
+          <p class="signup-row">New to FactPeek? <button type="button" id="createAccount">Create an account</button></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="view" id="view-home" data-view="home">
+      <div class="hero-shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> TODAY'S VERIFICATION DRILL · ABOUT 6 MIN</p>
+          <h1>Pause before you believe.<br /><em>Look at the evidence.</em></h1>
+          <p class="hero-lead">FactPeek uses realistic scenarios, traceable evidence, and precise feedback to build verification skills you can use on the next story.</p>
+          <div class="hero-actions">
+            <button class="primary-button" id="startChallenge">Start today's challenge <span>↗</span></button>
+            <button class="text-button" data-route="library">Browse all cases <span>→</span></button>
+          </div>
+          <div class="proof-strip" aria-label="Today's learning overview">
+            <div><strong>12</strong><span>minutes learned</span></div>
+            <div><strong>3</strong><span>day streak</span></div>
+            <div><strong>78%</strong><span>weekly accuracy</span></div>
+          </div>
+        </div>
+
+        <article class="hero-case reveal delay-1" aria-labelledby="daily-title">
+          <div class="case-visual">
+            <div class="source-chip"><span>!</span> EDUCATIONAL CASE</div>
+            <div class="headline-card">
+              <p>CAMPUS NOW</p>
+              <h2 id="daily-title">“Universities will abolish final exams next term”</h2>
+              <span>According to an “education insider”...</span>
+            </div>
+            <div class="scan-line" aria-hidden="true"></div>
+          </div>
+          <div class="case-meta">
+            <div>
+              <span class="tag tag-coral">Insufficient evidence</span>
+              <span class="tag">Campus</span>
+            </div>
+            <span>Intermediate · 6 min</span>
+          </div>
+          <button class="case-link" id="openDailyCase">Open the case and find the clues <span>→</span></button>
+        </article>
+      </div>
+
+      <section class="learning-section section-wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> BUILD A METHOD YOU CAN REUSE</p>
+          <h2>From “something feels off” to<br />“here is the evidence.”</h2>
+        </div>
+        <div class="learning-grid">
+          <article class="learning-card reveal">
+            <span class="card-index">01</span>
+            <div class="mini-icon blue" aria-hidden="true">⌁</div>
+            <h3>Spot suspicious signals</h3>
+            <p>Vague sourcing, fabricated quotes, emotional language, and missing context are all reasons to pause.</p>
+            <button class="inline-link" data-route="library">Explore signal drills →</button>
+          </article>
+          <article class="learning-card reveal delay-1">
+            <span class="card-index">02</span>
+            <div class="mini-icon mint" aria-hidden="true">◎</div>
+            <h3>Trace the original source</h3>
+            <p>Read laterally, locate official documents, check dates, and verify key claims across independent sources.</p>
+            <button class="inline-link" data-route="library">Learn the workflow →</button>
+          </article>
+          <article class="learning-card dark-card reveal delay-2">
+            <span class="card-index">03</span>
+            <div class="mini-icon coral" aria-hidden="true">↻</div>
+            <h3>Improve through feedback</h3>
+            <p>Go beyond right or wrong: see what evidence you missed and what to do differently next time.</p>
+            <button class="inline-link light" data-route="profile">View your progress →</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="continue-band">
+        <div>
+          <p class="eyebrow light-eyebrow"><span></span> CONTINUE WHERE YOU LEFT OFF</p>
+          <h2>Image provenance: when was this “flash flood” photo actually taken?</h2>
+        </div>
+        <div class="continue-action">
+          <div class="progress-ring" style="--progress: 68"><span>68%</span></div>
+          <button class="secondary-button" data-route="library">Continue learning</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-library" data-view="library">
+      <div class="page-intro reveal">
+        <div>
+          <p class="eyebrow"><span></span> CASE LIBRARY</p>
+          <h1>Build your judgment<br />in realistic scenarios.</h1>
+        </div>
+        <p>Find practice by topic, difficulty, and format. Every case includes a traceable evidence chain and actionable feedback.</p>
+      </div>
+
+      <div class="library-toolbar reveal delay-1">
+        <label class="library-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+          <input id="caseSearch" type="search" placeholder="Search titles, topics, sources, or tags" />
+        </label>
+        <button class="primary-button compact" data-route="analyze">+ Analyze my story</button>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Case categories">
+        <button class="filter-chip is-selected" data-filter="All">All</button>
+        <button class="filter-chip" data-filter="Campus">Campus</button>
+        <button class="filter-chip" data-filter="Health & Science">Health & Science</button>
+        <button class="filter-chip" data-filter="Technology">Technology</button>
+        <button class="filter-chip" data-filter="Public Policy">Public Policy</button>
+        <button class="filter-chip" data-filter="Image Verification">Image Verification</button>
+      </div>
+
+      <div class="case-grid" id="caseGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No matching cases found. Try another search.</p>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-case" data-view="case">
+      <button class="back-button" data-route="library">← Back to library</button>
+      <div class="case-layout">
+        <article class="article-pane reveal">
+          <div class="article-kicker"><span>CASE 014</span><span>Campus · Educational adaptation</span><span>6 min</span></div>
+          <h1>“Universities will abolish final exams and use AI to grade students”</h1>
+          <p class="article-deck">Read independently and mark suspicious clues before making a judgment. The evidence appears after submission.</p>
+          <div class="article-source">
+            <div class="source-avatar">CN</div>
+            <div><strong>Campus Now</strong><span>Posted 2 hours ago · Social media account</span></div>
+          </div>
+          <div class="article-body" id="articleBody">
+            <p>According to an “education department insider,” several universities will abolish final exams next term and use an AI system to automatically assess classroom performance.</p>
+            <p>The post claims that the new system has already been approved and that every university must deploy it by next January. It has spread across campus groups, but includes no official document or verifiable link.</p>
+            <p>Click any sentence you think deserves verification.</p>
+          </div>
+          <div class="clue-box"><span>VERIFICATION PROMPT</span><p>Who is the original source? Is there a primary document? What do independent outlets report?</p></div>
+        </article>
+
+        <aside class="quiz-pane reveal delay-1">
+          <div class="quiz-step">JUDGMENT 1 / 2</div>
+          <h2>Based on the material so far, this story is:</h2>
+          <div class="quiz-options" id="quizOptions">
+            <button data-answer="Likely credible"><span>A</span><strong>Likely credible</strong><small>Supported by strong independent evidence</small></button>
+            <button data-answer="Potentially misleading"><span>B</span><strong>Potentially misleading</strong><small>Available evidence conflicts with the claim</small></button>
+            <button data-answer="Insufficient evidence"><span>C</span><strong>Insufficient evidence</strong><small>There is not enough evidence to conclude</small></button>
+          </div>
+          <button class="primary-button full" id="submitQuiz" disabled>Submit judgment</button>
+          <p class="quiz-note">FactPeek never labels a story from tone or a single signal alone.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-feedback" data-view="feedback">
+      <button class="back-button" data-route="case">← Review the case</button>
+      <div class="feedback-shell reveal">
+        <div class="feedback-main">
+          <div class="result-mark">✓</div>
+          <p class="eyebrow"><span></span> QUIZ FEEDBACK</p>
+          <h1>Your judgment: <em id="selectedResult">Insufficient evidence</em></h1>
+          <p class="result-summary">This is the most defensible conclusion. No verifiable official document or independent source currently supports the claim.</p>
+          <div class="evidence-list">
+            <div><span>01</span><p><strong>Unverifiable source</strong>The “insider” has no identity, institution, or context and cannot serve as key evidence.</p></div>
+            <div><span>02</span><p><strong>Missing primary document</strong>Major education policy changes normally leave a trail of policy documents and university notices.</p></div>
+            <div><span>03</span><p><strong>No independent confirmation</strong>Lateral searching found no matching reports from university websites or reliable news outlets.</p></div>
+          </div>
+        </div>
+        <aside class="next-steps">
+          <span class="score-pill">SCORE 80 / 100</span>
+          <h2>Try this next time</h2>
+          <ol><li>Open the original post</li><li>Search official education documents</li><li>Compare at least two independent sources</li></ol>
+          <button class="primary-button full" data-route="library">Open the next case →</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-analyze" data-view="analyze">
+      <div class="page-intro reveal">
+        <div><p class="eyebrow"><span></span> ANALYZE MY STORY</p><h1>Turn a suspicious story<br />into a verification plan.</h1></div>
+        <p>Paste text or a link to get a preliminary review of sourcing, evidence, and language risks. This is a starting point for verification, not a final fact ruling.</p>
+      </div>
+      <div class="analyze-layout">
+        <div class="input-panel reveal delay-1">
+          <label for="analysisInput">Story text or link</label>
+          <textarea id="analysisInput" placeholder="Paste the content you want to check…"></textarea>
+          <div class="input-actions"><button class="upload-button" id="uploadDemo">⌁ Upload screenshot</button><span id="charCount">0 / 2000</span></div>
+          <button class="primary-button full" id="runAnalysis">Start preliminary analysis <span>→</span></button>
+          <p class="privacy-note">Do not upload sensitive personal information. This prototype does not save your input.</p>
+        </div>
+        <div class="analysis-panel reveal delay-2" id="analysisPanel">
+          <div class="analysis-empty">
+            <div class="radar" aria-hidden="true"><i></i><i></i><span></span></div>
+            <h2>Waiting for a story</h2>
+            <p>A preliminary conclusion, reasons, and next verification steps will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-profile" data-view="profile">
+      <div class="profile-hero reveal">
+        <div class="profile-avatar">AC<span></span></div>
+        <div><p>Welcome back</p><h1>Alex Chen</h1><span>8 cases this week · 82% accuracy</span></div>
+        <div class="streak-card"><strong>7</strong><span>day streak</span><div>● ● ● ● ● ● ●</div></div>
+      </div>
+      <div class="stats-grid reveal delay-1">
+        <article><span>Cases completed</span><strong>24</strong><small>+6 from last week</small></article>
+        <article><span>Methods mastered</span><strong>76%</strong><small>Strongest: lateral reading</small></article>
+        <article><span>Weekly rank</span><strong>#18</strong><small>of 326 learners</small></article>
+      </div>
+      <div class="profile-grid">
+        <section class="badge-section reveal delay-1">
+          <div class="subheading"><div><p class="eyebrow"><span></span> PROGRESS</p><h2>My badges</h2></div><button class="inline-link">View all →</button></div>
+          <div class="badge-grid">
+            <article><div class="badge-shape blue-badge">⌕</div><h3>Junior Detective</h3><p>Completed 5 cases</p></article>
+            <article><div class="badge-shape mint-badge">↗</div><h3>Lateral Reader</h3><p>Completed 10 cross-source checks</p></article>
+            <article><div class="badge-shape gold-badge">◎</div><h3>Image Tracer</h3><p>Completed 5 reverse-image checks</p></article>
+            <article class="locked"><div class="badge-shape">◇</div><h3>Evidence Hunter</h3><p>8 / 10 reliable sources</p></article>
+          </div>
+        </section>
+        <aside class="skills-section reveal delay-2">
+          <p class="eyebrow"><span></span> SKILL PROFILE</p><h2>Verification skills</h2>
+          <div class="skill-row"><span>Lateral reading</span><div><i style="width:88%"></i></div><b>88</b></div>
+          <div class="skill-row"><span>Source tracing</span><div><i style="width:74%"></i></div><b>74</b></div>
+          <div class="skill-row"><span>Image verification</span><div><i style="width:62%"></i></div><b>62</b></div>
+          <p class="skill-tip"><strong>NEXT STEP</strong>Practice image-verification cases next to improve at spotting recycled or misleadingly cropped images.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <button class="is-active" data-route="home"><span>⌂</span>Home</button>
+    <button data-route="library"><span>▦</span>Library</button>
+    <button data-route="analyze" class="nav-analyze" aria-label="Analyze my story"><span>＋</span></button>
+    <button data-route="profile"><span>◯</span>Profile</button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
