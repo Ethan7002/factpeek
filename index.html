@@ -27,6 +27,7 @@
       <button class="icon-button" id="themeToggle" aria-label="Toggle dark mode" title="Toggle display mode">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
       </button>
+      <button class="icon-button sound-on" id="soundToggle" aria-label="Toggle game sounds" title="Toggle game sounds">♪</button>
     </div>
   </header>
 
@@ -160,6 +161,8 @@
         <button class="filter-chip" data-filter="Technology">Technology</button>
         <button class="filter-chip" data-filter="Public Policy">Public Policy</button>
         <button class="filter-chip" data-filter="Image Verification">Image Verification</button>
+        <button class="filter-chip" data-filter="Scams">Scams</button>
+        <button class="filter-chip" data-filter="Climate">Climate</button>
       </div>
 
       <div class="case-grid" id="caseGrid"></div>
@@ -167,58 +170,54 @@
     </section>
 
     <section class="view section-wrap inner-view" id="view-case" data-view="case">
-      <button class="back-button" data-route="library">← Back to library</button>
+      <div class="game-hud">
+        <button class="back-button" data-route="library">← Back to library</button>
+        <div><span id="hudProgress">Question 1 of 4</span><b id="hudScore">100 pts</b><span class="stamina" id="hudStamina">⚡ 5</span></div>
+      </div>
       <div class="case-layout">
-        <article class="article-pane reveal">
-          <div class="article-kicker"><span>CASE 014</span><span>Campus · Educational adaptation</span><span>6 min</span></div>
-          <h1>“Universities will abolish final exams and use AI to grade students”</h1>
-          <p class="article-deck">Read independently and mark suspicious clues before making a judgment. The evidence appears after submission.</p>
+        <article class="article-pane reveal" id="caseArticle">
+          <div class="case-cover" id="caseCover"><span id="caseType">IMAGE VERIFICATION</span></div>
+          <div class="article-kicker" id="caseMeta"></div>
+          <h1 id="caseTitle"></h1>
+          <p class="article-deck" id="caseDeck"></p>
           <div class="article-source">
-            <div class="source-avatar">CN</div>
-            <div><strong>Campus Now</strong><span>Posted 2 hours ago · Social media account</span></div>
+            <div class="source-avatar" id="caseAvatar">FP</div>
+            <div><strong id="casePublisher"></strong><span id="casePublished"></span></div>
           </div>
-          <div class="article-body" id="articleBody">
-            <p>According to an “education department insider,” several universities will abolish final exams next term and use an AI system to automatically assess classroom performance.</p>
-            <p>The post claims that the new system has already been approved and that every university must deploy it by next January. It has spread across campus groups, but includes no official document or verifiable link.</p>
-            <p>Click any sentence you think deserves verification.</p>
-          </div>
-          <div class="clue-box"><span>VERIFICATION PROMPT</span><p>Who is the original source? Is there a primary document? What do independent outlets report?</p></div>
+          <div class="article-body" id="articleBody"></div>
+          <div class="clue-box"><span>VERIFICATION PROMPT</span><p id="casePrompt"></p></div>
+          <a class="source-link" id="caseSource" target="_blank" rel="noopener">Open the reference source ↗</a>
         </article>
 
-        <aside class="quiz-pane reveal delay-1">
-          <div class="quiz-step">JUDGMENT 1 / 2</div>
-          <h2>Based on the material so far, this story is:</h2>
-          <div class="quiz-options" id="quizOptions">
-            <button data-answer="Likely credible"><span>A</span><strong>Likely credible</strong><small>Supported by strong independent evidence</small></button>
-            <button data-answer="Potentially misleading"><span>B</span><strong>Potentially misleading</strong><small>Available evidence conflicts with the claim</small></button>
-            <button data-answer="Insufficient evidence"><span>C</span><strong>Insufficient evidence</strong><small>There is not enough evidence to conclude</small></button>
-          </div>
-          <button class="primary-button full" id="submitQuiz" disabled>Submit judgment</button>
-          <p class="quiz-note">FactPeek never labels a story from tone or a single signal alone.</p>
+        <aside class="quiz-pane reveal delay-1" id="quizPane">
+          <div class="mascot" id="mascot" aria-hidden="true"><i></i><b>FP</b></div>
+          <div class="quiz-step" id="quizStep"></div>
+          <h2 id="quizQuestion"></h2>
+          <p class="question-instruction" id="quizInstruction"></p>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-actions"><button class="hint-button" id="hintButton">💡 Use a hint <small>−5 pts</small></button><button class="primary-button" id="submitQuiz" disabled>Check answer</button></div>
+          <div class="hint-panel" id="hintPanel" hidden></div>
+          <p class="quiz-note">Wrong answers cost stamina. Learn a tip to recharge when it reaches zero.</p>
         </aside>
       </div>
     </section>
 
-    <section class="view section-wrap inner-view" id="view-feedback" data-view="feedback">
-      <button class="back-button" data-route="case">← Review the case</button>
-      <div class="feedback-shell reveal">
-        <div class="feedback-main">
-          <div class="result-mark">✓</div>
-          <p class="eyebrow"><span></span> QUIZ FEEDBACK</p>
-          <h1>Your judgment: <em id="selectedResult">Insufficient evidence</em></h1>
-          <p class="result-summary">This is the most defensible conclusion. No verifiable official document or independent source currently supports the claim.</p>
-          <div class="evidence-list">
-            <div><span>01</span><p><strong>Unverifiable source</strong>The “insider” has no identity, institution, or context and cannot serve as key evidence.</p></div>
-            <div><span>02</span><p><strong>Missing primary document</strong>Major education policy changes normally leave a trail of policy documents and university notices.</p></div>
-            <div><span>03</span><p><strong>No independent confirmation</strong>Lateral searching found no matching reports from university websites or reliable news outlets.</p></div>
-          </div>
-        </div>
-        <aside class="next-steps">
-          <span class="score-pill">SCORE 80 / 100</span>
-          <h2>Try this next time</h2>
-          <ol><li>Open the original post</li><li>Search official education documents</li><li>Compare at least two independent sources</li></ol>
-          <button class="primary-button full" data-route="library">Open the next case →</button>
-        </aside>
+    <section class="view section-wrap inner-view" id="view-summary" data-view="summary">
+      <div class="summary-shell reveal">
+        <div class="celebration-stage" id="celebrationStage"><div class="mascot big"><i></i><b>FP</b></div><span>CASE COMPLETE</span></div>
+        <p class="eyebrow"><span></span> MISSION SUMMARY</p>
+        <h1 id="summaryTitle">Evidence secured.</h1>
+        <p id="summaryMessage"></p>
+        <div class="summary-stats"><article><span>TIME</span><strong id="summaryTime">08:42</strong></article><article><span>ACCURACY</span><strong id="summaryAccuracy">75%</strong></article><article><span>SCORE</span><strong id="summaryScore">85</strong></article><article><span>HINTS</span><strong id="summaryHints">1</strong></article></div>
+        <div class="reward-row"><div id="summaryBadge">🏅 <strong>Badge progress updated</strong></div><div>🔥 <strong id="summaryStreak">1 day streak</strong></div></div>
+        <div class="summary-actions"><button class="secondary-button" data-route="profile">Review progress</button><button class="primary-button" id="nextCaseButton">Next case →</button></div>
+      </div>
+    </section>
+
+    <section class="view section-wrap inner-view" id="view-learn" data-view="learn">
+      <div class="learn-shell reveal">
+        <div class="learn-visual"><div class="battery"><i id="learnBattery"></i><span>⚡</span></div><p>Recharge your verification stamina</p></div>
+        <div class="learn-copy"><p class="eyebrow"><span></span> QUICK SKILL BOOST</p><h1 id="learnTitle">Pause. Trace. Compare.</h1><p id="learnText">When a claim triggers a strong reaction, pause before sharing. Find the original source, then compare it with at least two independent sources.</p><div class="tip-steps"><span>1 · Find the origin</span><span>2 · Check date & context</span><span>3 · Compare sources</span></div><button class="primary-button" id="rechargeButton">Complete lesson and recharge +3 ⚡</button></div>
       </div>
     </section>
 
@@ -252,18 +251,18 @@
         <div class="streak-card"><strong>7</strong><span>day streak</span><div>● ● ● ● ● ● ●</div></div>
       </div>
       <div class="stats-grid reveal delay-1">
-        <article><span>Cases completed</span><strong>24</strong><small>+6 from last week</small></article>
-        <article><span>Methods mastered</span><strong>76%</strong><small>Strongest: lateral reading</small></article>
-        <article><span>Weekly rank</span><strong>#18</strong><small>of 326 learners</small></article>
+        <article><span>Cases completed</span><strong id="profileCompleted">0</strong><small>Keep investigating</small></article>
+        <article><span>Current streak</span><strong id="profileStreak">1 day</strong><small id="profileBest">Best: 1 day</small></article>
+        <article><span>Wrong-answer book</span><strong id="profileWrong">0</strong><small>Ready to review</small></article>
       </div>
       <div class="profile-grid">
         <section class="badge-section reveal delay-1">
           <div class="subheading"><div><p class="eyebrow"><span></span> PROGRESS</p><h2>My badges</h2></div><button class="inline-link">View all →</button></div>
           <div class="badge-grid">
-            <article><div class="badge-shape blue-badge">⌕</div><h3>Junior Detective</h3><p>Completed 5 cases</p></article>
-            <article><div class="badge-shape mint-badge">↗</div><h3>Lateral Reader</h3><p>Completed 10 cross-source checks</p></article>
-            <article><div class="badge-shape gold-badge">◎</div><h3>Image Tracer</h3><p>Completed 5 reverse-image checks</p></article>
-            <article class="locked"><div class="badge-shape">◇</div><h3>Evidence Hunter</h3><p>8 / 10 reliable sources</p></article>
+            <article data-badge="first"><div class="badge-shape blue-badge">⌕</div><h3>First Look</h3><p>Complete 1 case</p></article>
+            <article data-badge="five"><div class="badge-shape mint-badge">↗</div><h3>Case Closer</h3><p>Complete 5 cases</p></article>
+            <article data-badge="streak"><div class="badge-shape gold-badge">◎</div><h3>Seven-Day Streak</h3><p>Learn 7 days in a row</p></article>
+            <article data-badge="perfect"><div class="badge-shape">◇</div><h3>Perfect Evidence</h3><p>Score 100 without hints</p></article>
           </div>
         </section>
         <aside class="skills-section reveal delay-2">
@@ -274,6 +273,7 @@
           <p class="skill-tip"><strong>NEXT STEP</strong>Practice image-verification cases next to improve at spotting recycled or misleadingly cropped images.</p>
         </aside>
       </div>
+      <section class="wrongbook-section reveal" id="wrongbookSection"><div class="subheading"><div><p class="eyebrow"><span></span> REVIEW QUEUE</p><h2>Wrong-answer book</h2></div><button class="inline-link" id="clearMastered">Clear mastered</button></div><div class="wrongbook-list" id="wrongbookList"></div></section>
     </section>
   </main>
 
@@ -281,9 +281,13 @@
     <button class="is-active" data-route="home"><span>⌂</span>Home</button>
     <button data-route="library"><span>▦</span>Library</button>
     <button data-route="analyze" class="nav-analyze" aria-label="Analyze my story"><span>＋</span></button>
+    <button data-route="learn"><span>⚡</span>Learn</button>
     <button data-route="profile"><span>◯</span>Profile</button>
   </nav>
 
+  <div class="result-overlay" id="resultOverlay" hidden><div class="result-card"><div class="result-icon" id="resultIcon">✓</div><h2 id="resultTitle">Evidence secured!</h2><p id="resultText"></p><button class="primary-button" id="continueQuiz">Continue →</button></div></div>
+  <div class="result-overlay" id="staminaOverlay" hidden><div class="result-card stamina-card"><div class="result-icon">⚡</div><h2>Verification stamina depleted</h2><p>Repeated misses are a signal to pause and learn a method—not to keep guessing. Complete a 60-second skill boost to recharge.</p><button class="primary-button" id="goLearnButton">Learn and recharge →</button></div></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>
