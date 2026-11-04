@@ -11,6 +11,9 @@ An English-only, responsive media-literacy learning prototype based on the FactP
 - Topic and truth-type filters across nine color-coded library categories
 - Library search and category filters
 - Case reading, clue marking, hints with score deductions, and mixed quiz formats
+- Per-question answer reviews showing the learner's answer, best answer, why it is correct, and why alternatives do not fit
+- An interactive four-step beginner guide with a guided starter case
+- Site-wide user feedback plus case-specific issue reporting, stored in the prototype browser
 - Animated right/wrong feedback, game sounds, progress, rewards, and completion summaries
 - Stamina with a required learning recharge after repeated mistakes
 - Favorites, sharing, helpful votes, source following, and local community comments
